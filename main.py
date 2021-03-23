@@ -30,15 +30,12 @@ class Display:
 
     def insert_shape(self):
         self.shape_wallet.append(shape.Shape(owner_canvas=self.canvas, pos=STARTING_POS))
+        print(STARTING_POS)
 
     def pulse(self):
         check = False
-        print(STARTING_POS)
         for shape in self.shape_wallet:
-            if not shape.move(self.shape_wallet):
-                check = True
-        if check:
-            self.insert_shape()
+
         self.canvas.after(300, self.pulse)
 
 

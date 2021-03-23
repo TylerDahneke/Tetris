@@ -84,23 +84,15 @@ class Shape:
                     self_x, self_y = self_shape_corner
                     other_x, other_y = other_shape_corner
                     if (self_x < other_x + TILE_WIDTH and self_x + TILE_WIDTH > other_x and
-                             self_y < other_y + TILE_HEIGHT and self_y + TILE_HEIGHT > other_y):
+                            self_y < other_y + TILE_HEIGHT and self_y + TILE_HEIGHT > other_y):
                         return True
         return False
-
 
     def is_out_of_bounds(self, pred_loc):
         global BOARDHEIGHT, BOARDWIDTH
         self_shape_corners = get_shape_corner(pred_loc, self.variance)
         for corner in self_shape_corners:
             x, y = corner
-
-            print(y + TILE_HEIGHT)
             if x < 0 or x + TILE_WIDTH > BOARDWIDTH or y + TILE_HEIGHT > BOARDHEIGHT:
                 return True
         return False
-
-
-
-
-
